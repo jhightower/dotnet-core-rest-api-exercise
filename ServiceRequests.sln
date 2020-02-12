@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceRequests.Api", "src\ServiceRequests.API\ServiceRequests.Api.csproj", "{13CC619E-E24A-4EF1-A9B3-12E97EB99F79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceRequests.Api.Tests", "tests\ServiceRequests.Api.Tests\ServiceRequests.Api.Tests.csproj", "{DC0E0D84-9F7F-4C3C-830D-948AFC88B11B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceRequests.Api.Tests", "tests\ServiceRequests.Api.Tests\ServiceRequests.Api.Tests.csproj", "{DC0E0D84-9F7F-4C3C-830D-948AFC88B11B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FE1E6BD3-AF3C-4DC1-9FCF-F44A9219FD74}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
