@@ -11,7 +11,7 @@ namespace ServiceRequests.Api.Tests.Domain.Services
     using System.Collections.Generic;
 
     [TestFixture]
-    public class ServiceRequestServiceTest
+    public class ServiceRequestServiceTests
 	{
         [Test]
         public async Task CreateAsync_Success()

@@ -6,6 +6,7 @@ namespace ServiceRequests.Api
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using ServiceRequests.Api.Domain.Services;
     using ServiceRequests.Api.Persistence.Contexts;
 
     public class Startup
@@ -17,8 +18,12 @@ namespace ServiceRequests.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("supermarket-api-in-memory"));
+            services.AddDbContext<AppDbContext>(options => options
+                .UseInMemoryDatabase("api-in-memory")
+                .EnableSensitiveDataLogging(true)
+            );
 
+            services.AddScoped<IServiceRequestService, ServiceRequestService>();
 
             services.AddControllers();
         }
@@ -28,7 +33,13 @@ namespace ServiceRequests.Api
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage();                
+            }
+
+            using (var serviceScope = app.ApplicationServices.CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetService<AppDbContext>();
+                context.Database.EnsureCreated();
             }
 
             app.UseHttpsRedirection();
